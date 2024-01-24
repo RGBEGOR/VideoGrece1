@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Log.webp" type="images/png">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Греция1</title>
+</head>
+
+
+<body>
+
+<header>
+    <a href="" class="brand">© Dream school</a>
+</header>
+
+
+<section class="home">
+    <video class="video-slide active" src="1.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="2.mp4" autoplay muted loop></video>
+    <video class="video-slide" src="3.mp4" autoplay muted loop></video>
+    
+<div class="content active">
+    <div class="box">
+    <img src="img/Grecce.png" alt="" class="img1">
+        <h1>Греция <br><span></span></h1>    
+    </div>
+    
+    <p class="introduction__title">
+        Афинский Акрополь — верхний  город Афин, представляющий собой 156-метровый скалистый холм с пологой вершиной. 
+    </p>
+</div>
+<div class="content">
+    <h1>Античная Греция<br><span></span></h1>
+    <p class="text__content">
+        Классическая Греция (V—IV вв. до н. э.). Расцвет экономики и культуры греческих полисов.
+        </p>
+</div>
+<div class="content">
+    <h2>Галера<br><span></span></h2>
+    <p class="text__content-g">
+        Галера — боевой корабль, для перемещения использующий главным образом вёсла.
+        </p>
+</div>
+
+
+
+<div class="slider-navigation">
+    <div class="nav-btn active"></div>
+    <div class="nav-btn"></div>
+    <div class="nav-btn"></div>
+
+
+</div>
+</section>    
+   
+
+<script type="text/javascript">
+
+const btns = document.querySelectorAll(".nav-btn");
+const slides = document.querySelectorAll(".video-slide");
+const contents = document.querySelectorAll(".content");
+
+var sliderNav = function(manual){
+btns.forEach((btn)=>{
+btn.classList.remove("active");
+});
+
+slides.forEach((slide) => {
+    slide.classList.remove("active");
+});
+
+contents.forEach((content)=>{
+    content.classList.remove("active");
+
+});
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+    contents [manual].classList.add("active");
+}
+
+btns.forEach((btn, i) => {
+btn.addEventListener("click", () => {
+sliderNav(i);
+});
+});
+
+
+
+
+class Text{
+    constructor(obj){
+      this.text = document.querySelector(obj)
+      this.fullText = this.text.innerHTML
+      this.text.innerHTML = ''
+  
+      this.str()
+    }
+    str(x = 0){
+      this.text.innerHTML += this.fullText[x]
+      x++
+      if (x < this.fullText.length) {
+        setTimeout(() => {
+          this.str(x)
+        }, 100);
+      }
+    }
+  }
+  const text = new Text('.introduction__title')
+
+
+</script>
+
+</body>
+</html>
